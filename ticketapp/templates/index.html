@@ -1,0 +1,118 @@
+<title>Ticket Katun Online Bus Ticket Website</title>
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/61/61985.png">
+<body>
+    <div id="navbar">
+        <div id="nav1">
+            <div id="title"><h1>Ticket Katun</h1></div>
+        </div>
+        <div id="name">
+            {% if user.is_authenticated %}
+            <h2>{{user.username}}</h2>
+            {% endif %}  
+        </div>
+        <div id="nav2">
+            <a href="index" id="home">Home</a>
+            <a href="contact" id="contact">Contact</a>
+            <a href="reserve" id="reserve">Reserve</a>
+            <a href="cancel" id="cancel">Cancel</a>
+            <a href="history" id="history">History</a>
+            <a href="login" id="logout">Logout</a>
+        </div>
+    </div>
+    <div id="main">
+        <div id="prompt">
+            <p>Where To Travel Now?</p>
+        </div>
+        <div id="form1">
+            <div id="form2">
+                <form method="POST" action="bus_list">
+                    {% csrf_token %}
+                    <label id="boarding">Boarding:</label><br>
+                    {{ form.Boarding }}
+                    <br><br>
+                    <label id="destination">Destination:</label><br>
+                    {{ form.Destination }}
+                    <br><br>
+                    <label id="date">Date:</label><br>
+                    {{ form.Date }}
+                    <br><br>
+                    <label id="coach">Coach:</label><br>
+                    {{ form.Coach }}
+                    <br><br> 
+                    <button type="submit" id="search">Search</button>
+                </form>
+            </div>          
+        </div>
+    </div>
+</body>
+
+<style>
+    #navbar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: rgb(16, 14, 14);
+        color: white;
+    }
+    #nav1{
+        width: 30%;
+    }
+    #name{
+        width: 20%;
+        align-self: center;
+    }
+    #nav2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 40%;
+        align-self: center;
+    }
+    #home,#contact,#reserve,#cancel,#history,#logout{
+        text-decoration: none;
+        font-size: large;
+        text-align: center;
+        color: white;
+    }
+    #main{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;   
+    }
+    #prompt{
+        margin-left: 10%;
+        width: 30%;
+        font-size: 100px;
+        font-weight: 600;
+    }
+    #form1{
+        margin-top: 2%;
+        width: 60%;
+        background-image: linear-gradient(rgba(103, 103, 103, 0.344),rgba(103, 103, 103, 0.344)), url(https://tellusdmsmedia.newmindmedia.com/wsimgs/hovedbilde_Foto_Sn_hetta_1313598298.jpg[ProductImage][491F7D0DB9C22DCC428CF36E5219E97FB486]); 
+    }
+    #form2{
+        margin-top: 10%;
+        margin-left: 15%;
+    }
+    #search{
+        padding: 10px 12px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(15, 15, 15);
+        color: white;
+        font-weight: 500;
+    }
+    #search:hover{
+        background-color: rgb(38, 38, 38);
+    }
+    #boarding, #destination, #date, #coach{
+        font-size: 20px;
+        font-weight: 550;
+    }
+    .my-custom-class{
+        padding: 10px 45px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+
+</style>

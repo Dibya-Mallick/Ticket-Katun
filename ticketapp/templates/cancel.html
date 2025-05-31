@@ -1,0 +1,31 @@
+<title>Ticket Katun Online Bus Ticket Website</title>
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/61/61985.png">
+<body>
+    <div id="navbar">
+        <div id="nav1">
+            <div id="title"><h1>Ticket Katun</h1></div>
+        </div>
+        <div id="name">
+            {% if user.is_authenticated %}
+            <h2>{{user.username}}</h2>
+            {% endif %}  
+        </div>
+        <div id="nav2">
+            <a href="index" id="home">Home</a>
+            <a href="contact" id="contact">Contact</a>
+            <a href="reserve" id="reserve">Reserve</a>
+            <a href="cancel" id="cancel">Cancel</a>
+            <a href="history" id="history">History</a>
+            <a href="login" id="logout">Logout</a>
+        </div>
+    </div>
+    <div>
+        <p id="prompt">Ticket & Reserve Cancelation</p>
+    </div>
+    <div>
+        <p id="promp1">Ticket Cancelation</p>
+    </div>
+    <div>
+        <p id="prompt2">Reserve Cancelation</p>
+    </div>
+</body>

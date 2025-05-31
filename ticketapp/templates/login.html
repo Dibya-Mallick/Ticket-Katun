@@ -1,0 +1,73 @@
+<title>Ticket Katun</title>
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/61/61985.png">
+<body>
+    <div id="main">
+        <h1>Log in to Site</h1>
+
+        {% for message in messages %}
+        <h3>{{message}}</h3>
+        {% endfor %}
+
+        <form method="POST" action="login">
+            {% csrf_token %}
+            <p id="label">Username:</p>
+            <input type="text" id="box" name="username">
+            <p id="label">Password:</p>
+            <input type="password" id="box" name="password"><br><br>
+            <input type="submit" id="login" name="login">
+            <a href="register">Forgot password? Open a new account</a>
+        </form>
+    </div>
+    <div id="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/61/61985.png">
+        <p id="name">Ticket Katun</p>
+    </div>
+</body>
+
+<style>
+    #main{
+        margin-left: 35%;
+        margin-top: 5%;
+    }
+    #box{
+        height: 40px;
+        width: 300px;
+        border-radius: 5px;
+    }
+    #label{
+        font-size: large;
+
+    }
+    #login{
+        padding: 10px 12px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(11, 136, 11);
+        color: white;
+    }
+    #login:hover{
+        background-color: rgb(24, 173, 24);
+        color: white;
+    }
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: large;
+    }
+    #logo{
+        display: flex;
+        flex-direction: row;
+        margin-left: 15%;
+    }
+    img{
+        margin-top: 3%;
+        margin-left: 5%;
+        height: 200px;
+        width: 300px;
+    }
+    #name{
+        margin-left: 3%;
+        font-size: 90px;
+        font-weight: 600;
+    }
+</style>

@@ -1,0 +1,131 @@
+<title>Contact-Ticket Katun</title>
+<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/61/61985.png">
+<body>
+    <div id="navbar">
+        <div id="nav1">
+            <div id="title"><h1>Ticket Katun</h1></div>
+        </div>
+        <div id="name">
+            {% if user.is_authenticated %}
+            <h2>{{user.username}}</h2>
+            {% endif %}  
+        </div>
+        <div id="nav2">
+            <a href="index" id="home">Home</a>
+            <a href="contact" id="contact">Contact</a>
+            <a href="reserve" id="reserve">Reserve</a>
+            <a href="cancel" id="cancel">Cancel</a>
+            <a href="history" id="history">History</a>
+            <a href="login" id="logout">Logout</a>
+        </div>
+    </div>
+    <div id="prompt">
+        <p id="prompt1">Bus Reservation</p>
+    </div>
+    <div id="form">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <label id="name">Name:</label><br>
+            {{ form.name }}
+            <br><br>
+            <label id="phone">Phone:</label><br>
+            {{ form.phone }}
+            <br><br>
+            <label id="address">Address:</label><br>
+            {{ form.address }}
+            <br><br>
+            <label id="email">Email:</label><br>
+            {{ form.email }}
+            <br><br>
+            <label id="journey_date">Journey Date:</label><br>
+            {{ form.journey_date }}
+            <br><br> 
+            <label id="return_date">Return Date:</label><br>
+            {{ form.return_date }}
+            <br><br>
+            <label id="boarding">Boarding:</label><br>
+            {{ form.boarding }}
+            <br><br>
+            <label id="destination">Destination</label><br>
+            {{ form.destination }}
+            <br><br>
+            <label id="pref_bus">Preferrable Operator:</label><br>
+            {{ form.pref_bus }}
+            <br><br>
+            <label id="no_of_bus">Number of Buses:</label><br>
+            {{ form.no_of_bus }}
+            <br><br>
+            <label id="no_of_seat">Number of Seats:</label><br>
+            {{ form.no_of_seat }}
+            <br><br>
+            <button type="submit" id="submit">Submit Reservation Info</button>
+        </form>
+    </div>
+</body>
+
+<style>
+    #navbar{
+        display: flex;
+        position: sticky;
+        top: 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        background-color: rgb(16, 14, 14);
+        color: white;
+        z-index: 1000; /* to ensure it stays above other elements */
+    }
+    #nav1{
+        width: 30%;
+    }
+    #name{
+        width: 20%;
+        align-self: center;
+    }
+    #nav2{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 40%;
+        align-self: center;
+    }
+    #home,#contact,#reserve,#cancel,#history,#logout{
+        text-decoration: none;
+        font-size: large;
+        text-align: center;
+        color: white;
+    }
+    #prompt1{
+        margin-left: 30%;
+        font-size: 80px;
+        font-weight: 600;
+        height: 30px;
+    } 
+    #form{
+        margin-left: 40%;
+    }
+    #submit{
+        padding: 10px 12px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(15, 15, 15);
+        color: white;
+        font-weight: 500;
+    }
+    #submit:hover{
+        background-color: rgb(38, 38, 38);
+    }
+    #name, #phone, #address, #email, #journey_date, #return_date, #boarding, #destination, #pref_bus, #no_of_bus, #no_of_seat{
+        font-size: 20px;
+        font-weight: 550;
+    }
+    .my-custom-class{
+        padding: 10px 50px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+    .form-select{
+        padding: 10px 50px;
+        font-size: 16px;
+        border-radius: 5px;
+    }
+</style>
